@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div layout:fragment="content" class="row">
+    <div class="col-xs-8 col-md-8">
+        <div align="center">
+        <h3>
+            <a href="/create" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+        </h3>
+        <h2>Student List</h2>
+        <div class="table-responsive">
+            <table border="2" cellpadding="10">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Sexe</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="product : ${products}">
+                    <td><a th:text="${product.id}"></a></td>
+                    <td><a th:text="${product.nom}"></a></td>
+                    <td th:text="${product.prenom}"></td>
+                    <td th:text="${product.sexe}"></td>
+                    <td>
+
+
+                        <a th:href="@{'/edit/' + ${product.id}}" class="btn btn-warning">Edit</a>
+
+                      
+
+
+                       <form action="/delete">
+                        <input type="hidden" name="id" th:value="${product.id}" />
+                        <input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure?');" />
+
+                        </form>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div align="center">
+
+<div layout:fragment="content" class="row">
+
+        <h3>
+            <a href="/" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-list"></span> Back</a>
+        </h3>
+        <h2>Edit Student</h2>
+        <form action="/update">
+
+                <label> Id</label>
+                <input type="text" class="form-control" name="id" th:value="${product.id}" />
+
+
+                <label>Nom</label>
+                <textarea class="form-control" name="nom" cols="60" rows="3" th:text="${product.nom}"></textarea>
+
+
+                <label >Prenom</label>
+                <input type="text" class="form-control" name="prenom" th:value="${product.prenom}" />
+
+
+                <label>Sexe</label>
+                <input type="text" class="form-control" name="sexe" th:value="${product.sexe}" />
+
+            <input type="hidden" name="id" th:value="${product.id}" />
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

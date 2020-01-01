@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div align="center">
+<h1>Formulaire</h1>
+
+<form method="POST"   th:object="${etudiant}" th:action="@{/create}">
+    <input class="input--style-1" type="text" placeholder="NAME"  name="nom" th:field="*{nom}">
+    <p style="color: red" class="help-block text-danger" th:if="${#fields.hasErrors('nom')} " th:errors="*{nom}"></p>
+    <input class="input--style-1" type="text" placeholder="LastName"  name="prenom" th:field="*{prenom}">
+    <p style="color: red" class="help-block text-danger" th:if="${#fields.hasErrors('prenom')} " th:errors="*{prenom}"></p>
+    <input class="input--style-1" type="text" placeholder="Sexe"  name="sexe" th:field="*{sexe}">
+    <p style="color: red" class="help-block text-danger" th:if="${#fields.hasErrors('sexe')} " th:errors="*{sexe}"></p>
+
+
+    <button class="btn btn--radius btn--green" type="submit">Submit</button>
+</form>
+
+<div align="center">
+    <h1><a href="/">Back To Home</a> </h1>
+</div>
+</div>
+</body>
+</html>
